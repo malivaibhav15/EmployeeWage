@@ -5,7 +5,7 @@ oneDayWage=0
 partTimeHours=8
 isPartTime=2
 isFullTime=1
-
+DayOfAMonth=20
 echo "Welcome to employee wage computation"
 function attendence()
 {
@@ -51,7 +51,18 @@ function caseStatement()
 			echo "No employee is there"
 	esac
 }
+function wageOfMonth()
+{
+	if [[ $check -eq 1 ]]
+	then
+		monthlyWage=$(( $(($wagePerHour*$fullDayHours))*$DayOfAMonth ))
+		echo "Monthly wage of a employee="$monthlyWage
+	else
+		echo "Employee is absent"
+	fi
+}
 attendence
 dailyWage
 partTimeEmployee
 caseStatement
+wageOfMonth
