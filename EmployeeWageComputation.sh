@@ -3,8 +3,11 @@ wagePerHour=20
 fullDayHours=8
 oneDayWage=0
 partTimeHours=8
+isPartTime=2
+isFullTime=1
+
 echo "Welcome to employee wage computation"
-function attendence ()
+function attendence()
 {
 	check=$((RANDOM%2))
 	if [[ $check -eq 1 ]]
@@ -34,6 +37,21 @@ function partTimeEmployee()
 		echo "Wage of part time employee in one day=0"
 	fi
 }
+function caseStatement()
+{
+	EmployeeCheck=$((RANDOM%3))
+	case $EmployeeCheck in
+		$isFullTime)
+			echo "Employee is full time employee"
+				;;
+		$isPartTime)
+			echo "Employee is part time employee"
+				;;
+		*)
+			echo "No employee is there"
+	esac
+}
 attendence
 dailyWage
 partTimeEmployee
+caseStatement
