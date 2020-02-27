@@ -61,8 +61,17 @@ function wageOfMonth()
 		echo "Employee is absent"
 	fi
 }
+function wageTillConditionReachForMonth()
+{
+	for (( counter=1;counter<=$DayOfAMonth;counter++ ))
+	do
+		monthlyWage=$(( $(($wagePerHour*$fullDayHours))*$counter ))
+	done
+      echo "Monthly wage of a employee="$monthlyWage
+}
 attendence
 dailyWage
 partTimeEmployee
 caseStatement
 wageOfMonth
+wageTillConditionReachForMonth
