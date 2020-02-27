@@ -2,7 +2,7 @@
 wagePerHour=20
 fullDayHours=8
 oneDayWage=0
-
+partTimeHours=8
 echo "Welcome to employee wage computation"
 function attendence ()
 {
@@ -24,5 +24,16 @@ function dailyWage()
 		echo "Wage in one day=0"
 	fi
 }
+function partTimeEmployee()
+{
+	if [[ $check -eq 1 ]]
+	then
+		oneDayWage=$(($wagePerHour*partTimeHours))
+		echo "Wage of part time employee=$oneDayWage"
+	else
+		echo "Wage of part time employee in one day=0"
+	fi
+}
 attendence
 dailyWage
+partTimeEmployee
