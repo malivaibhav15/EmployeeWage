@@ -6,6 +6,7 @@ partTimeHours=8
 isPartTime=2
 isFullTime=1
 DayOfAMonth=20
+day=0
 echo "Welcome to employee wage computation"
 function attendence()
 {
@@ -69,9 +70,22 @@ function wageTillConditionReachForMonth()
 	done
       echo "Monthly wage of a employee="$monthlyWage
 }
+function dailyWageWithTotalWage()
+{
+	while [ $day -le 20 ]
+	do
+		oneDayWage=$(( $(($wagePerHour*$fullDayHours))*$day ))
+		Array[day]=$oneDayWage
+		oneDayWage=0
+		((day++))
+	done
+	echo "Daily wages={${Array[@]}}"
+	wageOfMonth
+}
 attendence
 dailyWage
 partTimeEmployee
 caseStatement
 wageOfMonth
 wageTillConditionReachForMonth
+dailyWageWithTotalWage
